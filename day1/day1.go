@@ -6,8 +6,8 @@ import (
 	"sort"
 )
 
-var list1 []int
-var list2 []int
+var leftList []int
+var rightList []int
 var distanceList1 []int
 var distanceList2 []int
 
@@ -16,12 +16,12 @@ func Run(lines []string) {
 
 	for _, line := range lines {
 		array := helpers.StringToArray(line)
-		list1 = append(list1, helpers.GetIntFromString(array[0]))
-		list2 = append(list2, helpers.GetIntFromString(array[1]))
+		leftList = append(leftList, helpers.GetIntFromString(array[0]))
+		rightList = append(rightList, helpers.GetIntFromString(array[1]))
 	}
 
-	sort.Ints(list1)
-	sort.Ints(list2)
+	sort.Ints(leftList)
+	sort.Ints(rightList)
 
 	part1()
 	part2()
@@ -30,8 +30,8 @@ func Run(lines []string) {
 func part1() {
 	fmt.Println(".: Part 1 :.")
 
-	for i := 0; i < len(list1); i++ {
-		distance := getDistancePart1(list1[i], list2[i])
+	for i := 0; i < len(leftList); i++ {
+		distance := getDistancePart1(leftList[i], rightList[i])
 		distanceList1 = append(distanceList1, distance)
 	}
 
@@ -41,8 +41,8 @@ func part1() {
 func part2() {
 	fmt.Println(".: Part 2 :.")
 
-	for i := 0; i < len(list1); i++ {
-		distance := getDistancePart2(list1[i], list2)
+	for i := 0; i < len(leftList); i++ {
+		distance := getDistancePart2(leftList[i], rightList)
 		distanceList2 = append(distanceList2, distance)
 	}
 
