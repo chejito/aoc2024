@@ -8,10 +8,10 @@ import (
 
 var list1 []int
 var list2 []int
-var distanceList []int
+var distanceList1 []int
+var distanceList2 []int
 
 func Run(lines []string) {
-	fmt.Println(".: Part 1 :.")
 
 	for _, line := range lines {
 		array := helpers.StringToArray(line)
@@ -21,21 +21,59 @@ func Run(lines []string) {
 
 	sort.Ints(list1)
 	sort.Ints(list2)
+
+	part1()
+	part2()
+}
+
+func part1() {
+	fmt.Println(".: Part 1 :.")
+
 	for i := 0; i < len(list1); i++ {
-		distance := GetDistance(list1[i], list2[i])
-		distanceList = append(distanceList, distance)
+		distance := getDistancePart1(list1[i], list2[i])
+		distanceList1 = append(distanceList1, distance)
 	}
 
+	printResult(distanceList1)
+}
+
+func part2() {
+	fmt.Println(".: Part 2 :.")
+
+	for i := 0; i < len(list1); i++ {
+		distance := getDistancePart2(list1[i], list2)
+		distanceList2 = append(distanceList2, distance)
+	}
+
+	printResult(distanceList2)
+}
+
+func getDistancePart1(leftValue int, rightValue int) int {
+	if leftValue > rightValue {
+		return leftValue - rightValue
+	}
+	return rightValue - leftValue
+}
+
+func getDistancePart2(leftValue int, rightList []int) int {
+	var timesInRightList int = getTimesInRightList(leftValue, rightList)
+	return leftValue * timesInRightList
+}
+
+func getTimesInRightList(leftValue int, rightList []int) int {
+	times := 0
+	for _, rightValue := range rightList {
+		if rightValue == leftValue {
+			times++
+		}
+	}
+	return times
+}
+
+func printResult(distanceList []int) {
 	totalDistance := 0
 	for _, num := range distanceList {
 		totalDistance += num
 	}
 	fmt.Printf("Total distance is %d\n", totalDistance)
-}
-
-func GetDistance(i1 int, i2 int) int {
-	if i1 > i2 {
-		return i1 - i2
-	}
-	return i2 - i1
 }
