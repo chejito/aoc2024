@@ -12,6 +12,7 @@ var distanceList1 []int
 var distanceList2 []int
 
 func Run(lines []string) {
+	fmt.Println("..: Day 1 solutions :..")
 
 	for _, line := range lines {
 		array := helpers.StringToArray(line)
