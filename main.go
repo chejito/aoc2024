@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aoc2024/day1"
+	"aoc2024/days"
 	"aoc2024/helpers"
 	"fmt"
 	"os"
@@ -11,14 +11,20 @@ var lines []string
 var dayFunctions = map[string]func(){
 	"1":  runDay1,
 	"t1": runDay1,
+	"2":  runDay2,
+	"t2": runDay2,
 }
 
 func runDay1() {
-	day1.Run(lines)
+	days.RunDay1(lines)
+}
+
+func runDay2() {
+	days.RunDay2(lines)
 }
 
 func main() {
-	days := helpers.ReadConfig()
+	config := helpers.ReadConfig()
 
 	if len(os.Args) < 2 {
 		fmt.Println("Please, enter day as a parameter.")
@@ -26,7 +32,7 @@ func main() {
 	}
 
 	day := os.Args[1]
-	path := days[day]
+	path := config[day]
 
 	lines = helpers.ReadDayFile(path)
 

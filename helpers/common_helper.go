@@ -17,3 +17,11 @@ func GetIntFromString(str string) int {
 	}
 	return num
 }
+
+func StringArrayToIntArray(array []string) []int {
+	var result []int
+	for _, value := range array {
+		result = append(result, GetIntFromString(value))
+	}
+	return result
+}

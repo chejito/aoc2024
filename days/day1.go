@@ -1,4 +1,4 @@
-package day1
+package days
 
 import (
 	"aoc2024/helpers"
@@ -11,7 +11,7 @@ var rightList []int
 var distanceList1 []int
 var distanceList2 []int
 
-func Run(lines []string) {
+func RunDay1(lines []string) {
 	fmt.Println("..: Day 1 solutions :..")
 
 	for _, line := range lines {
@@ -23,11 +23,11 @@ func Run(lines []string) {
 	sort.Ints(leftList)
 	sort.Ints(rightList)
 
-	part1()
-	part2()
+	day1Part1()
+	day1Part2()
 }
 
-func part1() {
+func day1Part1() {
 	fmt.Println(".: Part 1 :.")
 
 	for i := 0; i < len(leftList); i++ {
@@ -35,10 +35,10 @@ func part1() {
 		distanceList1 = append(distanceList1, distance)
 	}
 
-	printResult(distanceList1)
+	printDistanceResult(distanceList1)
 }
 
-func part2() {
+func day1Part2() {
 	fmt.Println(".: Part 2 :.")
 
 	for i := 0; i < len(leftList); i++ {
@@ -46,7 +46,7 @@ func part2() {
 		distanceList2 = append(distanceList2, distance)
 	}
 
-	printResult(distanceList2)
+	printDistanceResult(distanceList2)
 }
 
 func getDistancePart1(leftValue int, rightValue int) int {
@@ -71,7 +71,7 @@ func getTimesInRightList(leftValue int, rightList []int) int {
 	return times
 }
 
-func printResult(distanceList []int) {
+func printDistanceResult(distanceList []int) {
 	totalDistance := 0
 	for _, num := range distanceList {
 		totalDistance += num
