@@ -9,34 +9,32 @@ import (
 func RunDay2(lines []string) {
 	fmt.Println("..: Day 2 solutions :..")
 
-	day2Part1(lines)
-	day2Part2(lines)
+	levels := helpers.ArrayOfStringToArrayOfArrayOfInt(lines)
+
+	day2Part1(levels)
+	day2Part2(levels)
 }
 
-func day2Part1(lines []string) {
+func day2Part1(levels [][]int) {
 	fmt.Println(".: Part 1 :.")
 
 	safeReports := 0
-	for _, line := range lines {
-		array := helpers.StringToArray(line)
-		intArray := helpers.StringArrayToIntArray(array)
-		if isSafeReport(intArray) {
+	for _, level := range levels {
+		if isSafeReport(level) {
 			safeReports++
 		}
 	}
 	fmt.Printf("Total safe reports: %d\n", safeReports)
 }
 
-func day2Part2(lines []string) {
+func day2Part2(levels [][]int) {
 	fmt.Println(".: Part 2 :.")
 	safeReports := 0
-	for _, line := range lines {
-		array := helpers.StringToArray(line)
-		intArray := helpers.StringArrayToIntArray(array)
-		if isSafeReport(intArray) {
+	for _, level := range levels {
+		if isSafeReport(level) {
 			safeReports++
 		} else {
-			if isToleratedSafety(intArray) {
+			if isToleratedSafety(level) {
 				safeReports++
 			}
 		}

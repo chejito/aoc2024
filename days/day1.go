@@ -16,8 +16,8 @@ func RunDay1(lines []string) {
 
 	for _, line := range lines {
 		array := helpers.StringToArray(line)
-		leftList = append(leftList, helpers.GetIntFromString(array[0]))
-		rightList = append(rightList, helpers.GetIntFromString(array[1]))
+		leftList = append(leftList, helpers.StringToInt(array[0]))
+		rightList = append(rightList, helpers.StringToInt(array[1]))
 	}
 
 	sort.Ints(leftList)
