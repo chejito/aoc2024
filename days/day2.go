@@ -8,31 +8,43 @@ import (
 
 func RunDay2(lines []string) {
 	fmt.Println("..: Day 2 solutions :..")
-	for _, line := range lines {
-		fmt.Println(line)
-	}
+
 	day2Part1(lines)
-	day2Part2()
+	day2Part2(lines)
 }
 
 func day2Part1(lines []string) {
 	fmt.Println(".: Part 1 :.")
+
 	safeReports := 0
 	for _, line := range lines {
-		if isSafeReport(line) {
+		array := helpers.StringToArray(line)
+		intArray := helpers.StringArrayToIntArray(array)
+		if isSafeReport(intArray) {
 			safeReports++
 		}
 	}
 	fmt.Printf("Total safe reports: %d\n", safeReports)
 }
 
-func day2Part2() {
+func day2Part2(lines []string) {
 	fmt.Println(".: Part 2 :.")
+	safeReports := 0
+	for _, line := range lines {
+		array := helpers.StringToArray(line)
+		intArray := helpers.StringArrayToIntArray(array)
+		if isSafeReport(intArray) {
+			safeReports++
+		} else {
+			if isToleratedSafety(intArray) {
+				safeReports++
+			}
+		}
+	}
+	fmt.Printf("Total safe reports: %d\n", safeReports)
 }
 
-func isSafeReport(line string) bool {
-	array := helpers.StringToArray(line)
-	intArray := helpers.StringArrayToIntArray(array)
+func isSafeReport(intArray []int) bool {
 	allIncreasing := isAllIncreasing(intArray)
 	if allIncreasing && isGradually(intArray) {
 		return true
@@ -44,18 +56,30 @@ func isSafeReport(line string) bool {
 	return false
 }
 
-func isAllIncreasing(array []int) bool {
-	for i := 1; i < len(array); i++ {
-		if array[i] <= array[i-1] {
+func isToleratedSafety(intArray []int) bool {
+	for i := 0; i < len(intArray); i++ {
+		sliceWithoutCurrent := make([]int, 0, len(intArray)-1)
+		sliceWithoutCurrent = append(sliceWithoutCurrent, intArray[:i]...)
+		sliceWithoutCurrent = append(sliceWithoutCurrent, intArray[i+1:]...)
+		if isSafeReport(sliceWithoutCurrent) {
+			return true
+		}
+	}
+	return false
+}
+
+func isAllIncreasing(intArray []int) bool {
+	for i := 1; i < len(intArray); i++ {
+		if intArray[i] <= intArray[i-1] {
 			return false
 		}
 	}
 	return true
 }
 
-func isAllDecreasing(array []int) bool {
-	for i := 1; i < len(array); i++ {
-		if array[i] >= array[i-1] {
+func isAllDecreasing(intArray []int) bool {
+	for i := 1; i < len(intArray); i++ {
+		if intArray[i] >= intArray[i-1] {
 			return false
 		}
 	}
