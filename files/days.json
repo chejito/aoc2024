@@ -2,5 +2,7 @@
   "1": "./files/days/day1.txt",
   "t1": "./files/tests/day1.txt",
   "2": "./files/days/day2.txt",
-  "t2": "./files/tests/day2.txt"
+  "t2": "./files/tests/day2.txt",
+  "3": "./files/days/day3.txt",
+  "t3": "./files/tests/day3.txt"
 }
