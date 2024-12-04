@@ -4,5 +4,7 @@
   "2": "./files/days/day2.txt",
   "t2": "./files/tests/day2.txt",
   "3": "./files/days/day3.txt",
-  "t3": "./files/tests/day3.txt"
+  "t3": "./files/tests/day3.txt",
+  "4": "./files/days/day4.txt",
+  "t4": "./files/tests/day4.txt"
 }

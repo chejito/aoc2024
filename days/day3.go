@@ -44,7 +44,6 @@ func processLine(line string) int {
 	for _, match := range matches {
 		a := helpers.StringToInt(match[1])
 		b := helpers.StringToInt(match[2])
-
 		var product = a * b
 		result += product
 	}
