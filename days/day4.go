@@ -101,21 +101,29 @@ func getXmasShape(lines []string) int {
 		}
 	}
 	return sum
-
 }
 
 func getHorizontalSection(lines []string, i int, j int) string {
-	return string(rune(lines[i][j])) + string(rune(lines[i][j+1])) + string(rune(lines[i][j+2])) + string(rune(lines[i][j+3]))
+	runes := []rune{rune(lines[i][j]), rune(lines[i][j+1]), rune(lines[i][j+2]), rune(lines[i][j+3])}
+	return string(runes)
 }
+
 func getVerticalSection(lines []string, i int, j int) string {
-	return string(rune(lines[i][j])) + string(rune(lines[i+1][j])) + string(rune(lines[i+2][j])) + string(rune(lines[i+3][j]))
+	runes := []rune{rune(lines[i][j]), rune(lines[i+1][j]), rune(lines[i+2][j]), rune(lines[i+3][j])}
+	return string(runes)
 }
+
 func getNwSeDiagonalSection(lines []string, i int, j int) string {
-	return string(rune(lines[i][j])) + string(rune(lines[i+1][j+1])) + string(rune(lines[i+2][j+2])) + string(rune(lines[i+3][j+3]))
+	runes := []rune{rune(lines[i][j]), rune(lines[i+1][j+1]), rune(lines[i+2][j+2]), rune(lines[i+3][j+3])}
+	return string(runes)
 }
+
 func getNeSwDiagonalSection(lines []string, i int, j int) string {
-	return string(rune(lines[i][j])) + string(rune(lines[i+1][j-1])) + string(rune(lines[i+2][j-2])) + string(rune(lines[i+3][j-3]))
+	runes := []rune{rune(lines[i][j]), rune(lines[i+1][j-1]), rune(lines[i+2][j-2]), rune(lines[i+3][j-3])}
+	return string(runes)
 }
+
 func GetShapeSection(lines []string, i int, j int) string {
-	return string(rune(lines[i][j])) + string(rune(lines[i][j+2])) + string(rune(lines[i+1][j+1])) + string(rune(lines[i+2][j])) + string(rune(lines[i+2][j+2]))
+	runes := []rune{rune(lines[i][j]), rune(lines[i][j+2]), rune(lines[i+1][j+1]), rune(lines[i+2][j]), rune(lines[i+2][j+2])}
+	return string(runes)
 }
