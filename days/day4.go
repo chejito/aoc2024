@@ -2,12 +2,12 @@ package days
 
 import "fmt"
 
-var xmas map[string]bool = map[string]bool{
+var xmas = map[string]bool{
 	"XMAS": true,
 	"SAMX": true,
 }
 
-var shapes map[string]bool = map[string]bool{
+var shapes = map[string]bool{
 	"SSAMM": true,
 	"MMASS": true,
 	"MSAMS": true,
