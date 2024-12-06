@@ -28,6 +28,15 @@ func ArrayOfStringToArrayOfArrayOfInt(lines []string) [][]int {
 	return result
 }
 
+func ArrayOfStringToArrayOfArrayOfString(lines []string) [][]string {
+	var result [][]string
+	for _, line := range lines {
+		array := StringToArrayNoSep(line)
+		result = append(result, array)
+	}
+	return result
+}
+
 func StringArrayToIntArray(array []string) []int {
 	var result []int
 	for _, value := range array {
@@ -44,4 +53,8 @@ func GetIndex(array []string, itemToFind string) int {
 		}
 	}
 	return index
+}
+
+func StringToArrayNoSep(line string) []string {
+	return strings.Split(line, "")
 }
