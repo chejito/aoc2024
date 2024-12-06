@@ -35,3 +35,13 @@ func StringArrayToIntArray(array []string) []int {
 	}
 	return result
 }
+
+func GetIndex(array []string, itemToFind string) int {
+	index := -1
+	for i, item := range array {
+		if item == itemToFind {
+			index = i
+		}
+	}
+	return index
+}
