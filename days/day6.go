@@ -18,24 +18,26 @@ var directions = []position{
 }
 var rows, cols int
 var guardPosition position
-var guardDirection int = 0
-var visitedPositions = make(map[position]bool)
+var guardDirection int
+var visitedPositions map[position]bool
 
 func RunDay6(lines []string) {
 	fmt.Println("..: Day 5 solutions :..")
 	grid := helpers.ArrayOfStringToArrayOfArrayOfString(lines)
 	rows, cols = len(grid), len(grid[0])
 	fmt.Printf("Grid size: %d x %d\n", rows, cols)
-	getInitialPosition(grid)
-	fmt.Printf("Initial guard position at row %d, col %d\n", guardPosition.x, guardPosition.y)
-	fmt.Printf("Initial visited positions: %d\n", len(visitedPositions))
+
 	day6Part1(grid)
 	//day6Part2()
 }
 
-func getInitialPosition(grid [][]string) {
+func setInitialValues(grid [][]string) {
+	guardDirection = 0
+	visitedPositions = make(map[position]bool)
+
 	for row := range grid {
 		for col := range grid[row] {
+
 			if grid[row][col] == "^" || grid[row][col] == "v" || grid[row][col] == "<" || grid[row][col] == ">" {
 				guardPosition = position{x: row, y: col}
 				visitedPositions[guardPosition] = true
@@ -47,6 +49,18 @@ func getInitialPosition(grid [][]string) {
 
 func day6Part1(grid [][]string) {
 	fmt.Println(".: Part 1 :.")
+	setInitialValues(grid)
+	fmt.Printf("Initial guard position at row %d, col %d\n", guardPosition.x, guardPosition.y)
+	fmt.Printf("Initial visited positions: %d\n", len(visitedPositions))
+	patrol(grid)
+	fmt.Printf("Total visited positions: %d\n", len(visitedPositions))
+}
+
+func day6Part2() {
+	fmt.Println(".: Part 2 :.")
+}
+
+func patrol(grid [][]string) {
 	for {
 		direction := directions[guardDirection]
 		dx, dy := direction.x, direction.y
@@ -63,9 +77,4 @@ func day6Part1(grid [][]string) {
 			visitedPositions[guardPosition] = true
 		}
 	}
-	fmt.Printf("Total visited positions: %d\n", len(visitedPositions))
-}
-
-func day6Part2() {
-	fmt.Println(".: Part 2 :.")
 }
