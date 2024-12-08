@@ -45,7 +45,7 @@ func day5Part1() {
 		middlePage := result[len(result)/2]
 		sum += helpers.StringToInt(middlePage)
 	}
-	fmt.Printf("Middle page results sum: %d\n", sum)
+	fmt.Printf("Middle page values sum: %d\n", sum)
 }
 
 func day5Part2() {
@@ -66,7 +66,7 @@ func day5Part2() {
 		middlePage := result[len(result)/2]
 		sum += helpers.StringToInt(middlePage)
 	}
-	fmt.Printf("Middle page results sum: %d\n", sum)
+	fmt.Printf("Middle page values sum: %d\n", sum)
 }
 
 func processOrders(orders []string) {

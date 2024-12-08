@@ -38,7 +38,7 @@ var guardDirection int
 var visitedPositions map[position]bool
 
 func RunDay6(lines []string) {
-	fmt.Println("..: Day 5 solutions :..")
+	fmt.Println("..: Day 6 solutions :..")
 	grid := helpers.ArrayOfStringToArrayOfArrayOfString(lines)
 	rows, cols = len(grid), len(grid[0])
 	fmt.Printf("Grid size: %d x %d\n", rows, cols)
