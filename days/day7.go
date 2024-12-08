@@ -31,17 +31,17 @@ func RunDay7(lines []string) {
 
 func day7Part1() {
 	fmt.Println(".: Part 1 :.")
-	calibrationResult := countSolvedEquations("1")
+	calibrationResult := getCalibrationResult("1")
 	fmt.Printf("Calibration result: %d\n", calibrationResult)
 }
 
 func day7Part2() {
 	fmt.Println(".: Part 2 :.")
-	calibrationResult := countSolvedEquations("2")
+	calibrationResult := getCalibrationResult("2")
 	fmt.Printf("Calibration result: %d\n", calibrationResult)
 }
 
-func countSolvedEquations(part string) int {
+func getCalibrationResult(part string) int {
 	result := 0
 	for _, equation := range equations {
 		value := equation[0]
