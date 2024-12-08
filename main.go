@@ -23,6 +23,8 @@ var dayFunctions = map[string]func(){
 	"t6": runDay6,
 	"7":  runDay7,
 	"t7": runDay7,
+	"8":  runDay8,
+	"t8": runDay8,
 }
 
 func runDay1() {
@@ -49,6 +51,9 @@ func runDay6() {
 }
 func runDay7() {
 	days.RunDay7(lines)
+}
+func runDay8() {
+	days.RunDay8(lines)
 }
 
 func main() {
