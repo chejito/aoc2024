@@ -16,5 +16,7 @@
   "8": "./files/days/day8.txt",
   "t8": "./files/tests/day8.txt",
   "9": "./files/days/day9.txt",
-  "t9": "./files/tests/day9.txt"
+  "t9": "./files/tests/day9.txt",
+  "10": "./files/days/day10.txt",
+  "t10": "./files/tests/day10.txt"
 }

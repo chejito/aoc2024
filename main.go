@@ -9,24 +9,26 @@ import (
 
 var lines []string
 var dayFunctions = map[string]func(){
-	"1":  runDay1,
-	"t1": runDay1,
-	"2":  runDay2,
-	"t2": runDay2,
-	"3":  runDay3,
-	"t3": runDay3,
-	"4":  runDay4,
-	"t4": runDay4,
-	"5":  runDay5,
-	"t5": runDay5,
-	"6":  runDay6,
-	"t6": runDay6,
-	"7":  runDay7,
-	"t7": runDay7,
-	"8":  runDay8,
-	"t8": runDay8,
-	"9":  runDay9,
-	"t9": runDay9,
+	"1":   runDay1,
+	"t1":  runDay1,
+	"2":   runDay2,
+	"t2":  runDay2,
+	"3":   runDay3,
+	"t3":  runDay3,
+	"4":   runDay4,
+	"t4":  runDay4,
+	"5":   runDay5,
+	"t5":  runDay5,
+	"6":   runDay6,
+	"t6":  runDay6,
+	"7":   runDay7,
+	"t7":  runDay7,
+	"8":   runDay8,
+	"t8":  runDay8,
+	"9":   runDay9,
+	"t9":  runDay9,
+	"10":  runDay10,
+	"t10": runDay10,
 }
 
 func runDay1() {
@@ -55,6 +57,9 @@ func runDay8() {
 }
 func runDay9() {
 	days.RunDay9(lines)
+}
+func runDay10() {
+	days.RunDay10(lines)
 }
 
 func main() {

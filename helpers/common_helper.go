@@ -28,6 +28,16 @@ func ArrayOfStringToArrayOfArrayOfInt(lines []string) [][]int {
 	return result
 }
 
+func ArrayOfStringNoSepToArrayOfArrayOfInt(lines []string) [][]int {
+	var result [][]int
+	for _, line := range lines {
+		array := StringToArrayNoSep(line)
+		intArray := StringArrayToIntArray(array)
+		result = append(result, intArray)
+	}
+	return result
+}
+
 func ArrayOfStringToArrayOfArrayOfString(lines []string) [][]string {
 	var result [][]string
 	for _, line := range lines {
